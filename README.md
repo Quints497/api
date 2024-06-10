@@ -13,8 +13,8 @@ This project is a FastAPI application that generates responses using the `llama_
 1. **Clone the repository**:
 
    ```sh
-   git clone <repository_url>
-   cd <api>
+   git clone <https://github.com/Quints497/web-api.git>
+   cd <web-api>
    ```
 
 2. **Create and activate a virtual environment** (optional but recommended):

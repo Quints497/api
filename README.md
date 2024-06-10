@@ -2,47 +2,51 @@
 
 This project is a FastAPI application that generates responses using the `llama_cpp` library and a specified language model. It includes CORS middleware to allow interactions with a frontend application, such as one built with Vue.js.
 
-## Prerequisites
+## Table of Contents
 
-- Python 3.6+
-- `pip` (Python package installer)
-- Environment variables set up in a `.env` file
+- [Installation](#installation)
+- [Usage](#usage)
+- [API Endpoints](#api-endpoints)
+- [Project Structure](#project-structure)
+- [Files](#files)
+- [Dependencies](#dependencies)
 
 ## Installation
 
 1. **Clone the repository**:
 
-   ```sh
-   git clone <https://github.com/Quints497/web-api.git>
-   cd <web-api>
+   ```bash
+   git clone https://github.com/Quints497/web-api.git
+   cd web-api
    ```
 
 2. **Create and activate a virtual environment** (optional but recommended):
 
-   ```sh
+   ```bash
    python3 -m venv venv
    source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
    ```
 
-3. **Install dependencies**:
+3. **Install the required dependencies**:
 
-   ```sh
+   ```bash
    pip install -r requirements.txt
    ```
 
-4. **Set up environment variables**:
-   - Create a `.env` file in the root directory of the project.
-   - Add the path to your model in the `.env` file:
+## Usage
 
-   ```raw
-   MIXTRAL_MODEL_PATH=/path/to/your/model/mixtral-8x7b-instruct-v0.1.Q6_K.gguf
-   ```
+### Set up environment variables
 
-## Running the Application
+Ensure you have a `.env` file in the project directory with the necessary environment variables:
+
+- Add the path to your model in the `.env` file:
+  - `MIXTRAL_MODEL_PATH`
+
+### Running the Application
 
 To start the FastAPI server, run the following command:
 
-```sh
+```bash
 uvicorn main:app --reload
 ```
 
@@ -63,7 +67,7 @@ This endpoint generates a response based on the provided message and chat histor
 
 #### Example Request
 
-```sh
+```bash
 curl -X POST "http://127.0.0.1:8000/api/generate" -H "Content-Type: application/json" -d '{"message": "Hello!", "history": []}'
 ```
 
@@ -80,6 +84,8 @@ api/
 ├── README.md
 └── requirements.txt
 ```
+
+## Files
 
 - **main.py**: The main FastAPI application code.
 - **venv/**: Virtual environment (not included in the respository, needs to be created).

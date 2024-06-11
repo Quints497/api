@@ -36,6 +36,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
 # Helper function to generate a response
 def generate_response(message: str, history: list) -> Generator[str, None, None]:
     prompt = [
@@ -54,7 +55,7 @@ def generate_response(message: str, history: list) -> Generator[str, None, None]
         stream=True,
         response_format={"type": "html"},
     )
-    
+
     for idx, chunk in enumerate(response):
         if idx == 0:
             continue  # Skip the first chunk if it's not part of the actual response
@@ -81,7 +82,7 @@ async def generate(request: Request):
     history = data.get(
         "history", []
     )  # Provide a default empty list for history if not provided
-    
+
     if not message:
         return {"error": "The 'message' field is required."}
 
